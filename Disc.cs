@@ -3,6 +3,7 @@
     public abstract class Disc : IDisc
     {
         private string _name;
+        private string _discrange;
         private DiscType _type;
         private decimal _speed;
         private decimal _glide;
@@ -14,6 +15,12 @@
         {
             get { return _name; }
             set { _name = value; }
+        }
+
+        public string DiscRange
+        {
+            get { return _discrange; }
+            set { _discrange = value; }
         }
 
         public DiscType Type
@@ -64,9 +71,10 @@
             set { _plastic = value; }
         }
 
-        public Disc(string name, DiscType type, decimal speed, decimal glide, decimal turn, decimal fade, PlasticType plastic)
+        public Disc(string name, string discrange, DiscType type, decimal speed, decimal glide, decimal turn, decimal fade, PlasticType plastic)
         {
             Name = name;
+            DiscRange = discrange;
             Type = type;
             Speed = speed;
             Glide = glide;
@@ -79,7 +87,7 @@
 
         public void Flight()
         {
-            string flightDescription = FlightDescription.GetFlightDescription(Name, Speed, Glide, Turn, Fade, Stability, Plastic);
+            string flightDescription = FlightDescription.GetFlightDescription(Name, DiscRange, Speed, Glide, Turn, Fade, Stability, Plastic);
             Console.WriteLine(flightDescription);
         }
 

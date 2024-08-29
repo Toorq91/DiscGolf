@@ -1,26 +1,24 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-namespace DiscGolf
+﻿namespace DiscGolf
 {
     public static class FlightDescription
     {
-        public static string GetFlightDescription(string name, decimal speed, Stability stability, PlasticType plastic)
+        public static string GetFlightDescription(string name, decimal speed, decimal glide, decimal turn, decimal fade, Stability stability, PlasticType plastic)
         {
-            string stabilityDescription = stability switch
+            string flightDescription = stability switch
             {
 
                 Stability.Overstable =>
-                    $"{name} is an overstable putter with {speed} speed, designed to fade left at the end of the flight.\n",
+                    $"{name} is an overstable putter designed to fade left at the end of the flight.",
                 Stability.Stable =>
-                    $"{name} is a stable putter with {speed} speed, designed to fly straight with minimal fade.\n",
+                    $"{name} is a stable putter designed to fly straight with minimal fade.",
                 Stability.Understable =>
-                    $"{name} is an understable putter with {speed} speed, designed to turn right before fading.\n",
+                    $"{name} is an understable putter designed to turn right before fading.",
                 _ => $"{name} has an unknown flight characteristic."
             };
 
-            string plasticDescription = plastic.GetFlightDescription();
+            flightDescription += "\n" + PlasticTypeExtensions.GetFlightDescription(plastic);
 
-            return $"{stabilityDescription}{plasticDescription}";
+            return flightDescription;
         }
     }
 }

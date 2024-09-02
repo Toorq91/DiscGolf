@@ -1,6 +1,6 @@
 ﻿namespace DiscGolf
 {
-    public abstract class Disc : IDisc
+    public class Disc : IDisc
     {
         private string _name;
         private string _discrange;
@@ -10,6 +10,7 @@
         private decimal _turn;
         private decimal _fade;
         private PlasticType _plastic;
+        private Stability _stability;
 
         public string Name
         {
@@ -71,7 +72,13 @@
             set { _plastic = value; }
         }
 
-        public Disc(string name, string discrange, DiscType type, decimal speed, decimal glide, decimal turn, decimal fade, PlasticType plastic)
+        public Stability Stability
+        {
+            get { return _stability; }
+            set { _stability = value; }
+        }
+
+        public Disc(string name, string discrange, DiscType type, decimal speed, decimal glide, decimal turn, decimal fade, Stability stability, PlasticType plastic)
         {
             Name = name;
             DiscRange = discrange;
@@ -80,10 +87,16 @@
             Glide = glide;
             Turn = turn;
             Fade = fade;
+            Stability = Stability;
             Plastic = plastic;
+
+            DiscRange = FormatDiscRange(discrange);
         }
 
-        public abstract Stability Stability { get; set; }
+        private string FormatDiscRange(string discrange)
+        {
+            return string.Concat(discrange.Select((x, i) => i > 0 && char.IsUpper(x) ? " " + char.ToLower(x) : char.ToLower(x).ToString()));
+        }
 
         public void Flight()
         {

@@ -6,5 +6,6 @@
             Stable,
             Understable,
             Flippy,
+            Tomahawk,
         }
     }

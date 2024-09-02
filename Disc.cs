@@ -87,7 +87,7 @@
             Glide = glide;
             Turn = turn;
             Fade = fade;
-            Stability = Stability;
+            Stability = stability;
             Plastic = plastic;
 
             DiscRange = FormatDiscRange(discrange);

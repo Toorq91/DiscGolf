@@ -7,5 +7,7 @@
         Neutron,
         Fission,
         Electron,
+        Gold,
+        Opto
     }
 }

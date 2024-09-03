@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             Console.Clear();
-            Console.SetCursorPosition(0, 0);
+            Console.WriteLine("Hello and welcome to my discgolf bag :D\n");
 
             List<Disc> bag = new List<Disc>
         {
@@ -38,6 +38,7 @@
                 Console.WriteLine();
             }
 
+            Console.SetCursorPosition(0, 0);
             Console.ReadKey();
         }
     }

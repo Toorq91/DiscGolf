@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             Console.Clear();
-            Console.WriteLine("Hello and welcome to my discgolf bag :D\n");
+            Console.WriteLine("Hello and welcome to my disc golf bag :D\n");
 
             List<Disc> bag = new List<Disc>
         {
@@ -29,7 +29,6 @@
             new Disc("Fission Time-Lapse", "Distance driver", DiscType.DistanceDriver, 12m, 5m, -1m, 3m, Stability.Overstable, PlasticType.Fission),
             new Disc("Tern", "Distance driver", DiscType.DistanceDriver, 12m, 6m, -3m, 2m, Stability.Understable, PlasticType.Star),
             new Disc("Shryke", "Distance driver", DiscType.DistanceDriver, 13m, 6m, -2m, 2m, Stability.Understable, PlasticType.Star),
-
         };
             foreach (var disc in bag)
             {

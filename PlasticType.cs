@@ -8,6 +8,6 @@
         Fission,
         Electron,
         Gold,
-        Opto
+        Opto,
     }
 }
